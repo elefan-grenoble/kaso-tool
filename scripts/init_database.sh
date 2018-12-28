@@ -1,4 +1,4 @@
-source ../../config.sh
+source ../../kaso-tool-config.sh
 
 mysql -h localhost -u $dbUser -p $dbPassword < articles.sql
 mysql -h localhost -u $dbUser -p $dbPassword < famille.sql
