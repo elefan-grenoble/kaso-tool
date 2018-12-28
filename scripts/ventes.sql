@@ -20,7 +20,7 @@ IGNORE 1 LINES
 (clef_stat, @date, designation_article, quantite, ca_ht, ca_ttc, @dummy)
 SET date = STR_TO_DATE(@date, '%e/%c/%Y');
 
-LOAD DATA LOCAL INFILE '/home/bastien/lelefan/kaso/exports/KASO_VENTE_2018_2018122617044941.CSV'
+LOAD DATA LOCAL INFILE '/home/kaso/exports/KASO_VENTE_2018_2018122617044941.CSV'
 INTO TABLE VENTE
 CHARACTER SET 'latin2'
 FIELDS TERMINATED BY ';'
