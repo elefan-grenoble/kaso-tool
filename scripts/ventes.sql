@@ -6,7 +6,8 @@ CREATE TABLE VENTE (
   designation_article VARCHAR(56)     NOT NULL,
   quantite            DECIMAL(40, 30) NOT NULL,
   ca_ht               DECIMAL(10, 3)  NOT NULL,
-  ca_ttc              DECIMAL(10, 3)  NOT NULL
+  ca_ttc              DECIMAL(10, 3)  NOT NULL,
+  PRIMARY KEY (clef_stat, designation_article)
 )
   DEFAULT CHARACTER SET UTF8
   COLLATE UTF8_unicode_ci
