@@ -1,7 +1,12 @@
 source ../../kaso-tool-config.sh
 
-mysql -h localhost -u $dbUser -p$dbPassword $dbName < articles.sql
-mysql -h localhost -u $dbUser -p$dbPassword $dbName < famille.sql
+echo 'Populating the fournisseur table'
 mysql -h localhost -u $dbUser -p$dbPassword $dbName < fournisseur.sql
+echo 'Populating the famille table'
+mysql -h localhost -u $dbUser -p$dbPassword $dbName < famille.sql
+echo 'Populating the articles table'
+mysql -h localhost -u $dbUser -p$dbPassword $dbName < articles.sql
+echo 'Populating the stocks table'
 mysql -h localhost -u $dbUser -p$dbPassword $dbName < stocks.sql
+echo 'Populating the ventes table'
 mysql -h localhost -u $dbUser -p$dbPassword $dbName < ventes.sql
