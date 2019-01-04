@@ -17,3 +17,5 @@ FIELDS TERMINATED BY ';'
 IGNORE 1 LINES
 (code, qte_stocks, qte_commande, @date, @heure, @dummy)
 SET date = STR_TO_DATE(CONCAT(@date, @heure),'%e/%c/%Y %Hh%i');
+
+ALTER TABLE kaso.STOCKS ADD CONSTRAINT STOCKS_ARTICLE_FK FOREIGN KEY (code) REFERENCES kaso.ARTICLE(code);
