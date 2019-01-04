@@ -1,5 +1,7 @@
 source ../../kaso-tool-config.sh
 
+echo 'Recreating the database...'
+mysql -h localhost -u $dbUser -p$dbPassword -e "CREATE DATABASE IF NOT EXISTS ${dbName}"
 echo 'Populating the fournisseur table'
 mysql -h localhost -u $dbUser -p$dbPassword $dbName < fournisseur.sql
 echo 'Populating the famille table'
