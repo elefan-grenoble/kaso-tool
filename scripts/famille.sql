@@ -1,11 +1,13 @@
 DROP TABLE IF EXISTS FAMILLE;
 
 CREATE TABLE FAMILLE (
+  id                  INT NOT NULL AUTO_INCREMENT,
   code                INT NOT NULL,
   code_s_famille      INT NOT NULL,
   code_ss_famille     INT NOT NULL,
   nom                 VARCHAR(512) NOT NULL,
-  PRIMARY KEY (code, code_s_famille, code_ss_famille)
+  PRIMARY KEY (id),
+  UNIQUE KEY code (code,code_s_famille, code_ss_famille)
 )
   DEFAULT CHARACTER SET UTF8
   COLLATE UTF8_unicode_ci
