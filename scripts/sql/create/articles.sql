@@ -30,7 +30,6 @@ CREATE TABLE ARTICLE (
   COLLATE UTF8_unicode_ci
   ENGINE = InnoDB;
 
-
 LOAD DATA LOCAL INFILE '/home/kaso/exports/KASO_ARTICLE.CSV'
 INTO TABLE ARTICLE
 CHARACTER SET 'latin2'
@@ -41,13 +40,13 @@ SET date_creation = STR_TO_DATE(@date_creation,'%e/%c/%Y'), date_modification = 
 
 -- Create mising FAMILLE
 INSERT INTO FAMILLE(code, code_s_famille, code_ss_famille, nom)
-SELECT DISTINCT a.code_famille, a.code_s_famille, a.code_ss_famille, 'Inconnu'
-FROM ARTICLE a
-WHERE NOT EXISTS (
-SELECT * FROM FAMILLE f
-WHERE a.code_famille = f.code
-AND a.code_s_famille = f.code_s_famille
-AND a.code_ss_famille = f.code_ss_famille);
+  SELECT DISTINCT a.code_famille, a.code_s_famille, a.code_ss_famille, 'Inconnu'
+  FROM ARTICLE a
+  WHERE NOT EXISTS (
+      SELECT * FROM FAMILLE f
+      WHERE a.code_famille = f.code
+            AND a.code_s_famille = f.code_s_famille
+            AND a.code_ss_famille = f.code_ss_famille);
 
 -- Populate the famille_id column
 UPDATE ARTICLE a SET famille_id = (SELECT id FROM FAMILLE f WHERE f.code = a.code_famille AND a.code_s_famille = f.code_s_famille AND a.code_ss_famille = f.code_ss_famille) WHERE famille_id IS NULL;
@@ -60,11 +59,11 @@ ALTER TABLE ARTICLE ADD CONSTRAINT ARTICLE_FAMILLE_FK FOREIGN KEY (famille_id) R
 
 -- Create missing FOURNISSEUR
 INSERT INTO FOURNISSEUR(code, nom)
-SELECT DISTINCT a.code_fournisseur, 'Inconnu'
-FROM ARTICLE a
-WHERE NOT EXISTS (
-SELECT * FROM FOURNISSEUR f
-WHERE a.code_fournisseur = f.code);
+  SELECT DISTINCT a.code_fournisseur, 'Inconnu'
+  FROM ARTICLE a
+  WHERE NOT EXISTS (
+      SELECT * FROM FOURNISSEUR f
+      WHERE a.code_fournisseur = f.code);
 
 -- Create the FK to FOURNISSEUR
 ALTER TABLE ARTICLE ADD CONSTRAINT ARTICLE_FOURNISSEUR_FK FOREIGN KEY (code_fournisseur) REFERENCES FOURNISSEUR(code);

@@ -1,0 +1,11 @@
+DROP TABLE IF EXISTS STATJOUR;
+
+CREATE TABLE STATJOUR (
+  date       DATE PRIMARY KEY,
+  ca_ht      DECIMAL(10, 6) NOT NULL,
+  ca_ttc     DECIMAL(10, 6) NOT NULL,
+  nb_clients INT            NOT NULL
+)
+  DEFAULT CHARACTER SET UTF8
+  COLLATE UTF8_unicode_ci
+  ENGINE = InnoDB;
