@@ -1,4 +1,5 @@
-source ../../kaso-tool-config.sh
+DIRNAME=`dirname "$0"`
+source "$DIRNAME/../../kaso-tool-config.sh"
 
 echo 'Populating the stat jour table'
 for f in $exportsDir/KASO_STATJOUR_*.CSV; do
