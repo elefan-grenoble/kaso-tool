@@ -1,3 +1,6 @@
+
+SET FOREIGN_KEY_CHECKS=0;
+
 DROP TABLE IF EXISTS FAMILLE;
 
 CREATE TABLE FAMILLE (
@@ -19,3 +22,5 @@ CHARACTER SET 'latin2'
 FIELDS TERMINATED BY ';'
 IGNORE 1 LINES
 (code, code_s_famille, code_ss_famille, nom, @dummy);
+
+SET FOREIGN_KEY_CHECKS=1;

@@ -1,3 +1,5 @@
+SET FOREIGN_KEY_CHECKS=0;
+
 DROP TABLE IF EXISTS FOURNISSEUR;
 
 CREATE TABLE FOURNISSEUR (
@@ -28,3 +30,5 @@ CHARACTER SET 'latin2'
 FIELDS TERMINATED BY ';'
 IGNORE 1 LINES
 (code, nom, addresse1, addresse2, ville, code_postal, mt_franco, tva_intercommunautaire, delai, remise, nom_contact, telephone, portable, fax, email, site_internet, @dummy);
+
+SET FOREIGN_KEY_CHECKS=1;
