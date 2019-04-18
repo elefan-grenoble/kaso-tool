@@ -14,7 +14,7 @@ CREATE TABLE ARTICLE (
   code_ss_famille        INT NOT NULL,
   code_tva               INT,
   qte_appro              INT,
-  code_rayon             INT,
+  code_rayon             VARCHAR(56),
   code_emplacement       INT,
   code_marque            INT,
   code_provenance        INT,
