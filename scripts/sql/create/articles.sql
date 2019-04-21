@@ -71,11 +71,11 @@ INSERT INTO FOURNISSEUR(code, nom)
       
 -- Create missing RAYON
 INSERT INTO RAYON(code, libelle)
-  SELECT DISTINCT a.code_fournisseur, 'Inconnu'
+  SELECT DISTINCT a.code_rayon, 'Inconnu'
   FROM ARTICLE a
   WHERE NOT EXISTS (
       SELECT * FROM RAYON f
-      WHERE a.code_fournisseur = f.code);
+      WHERE a.code_rayon = f.code);
       
 -- Create missing EMPLACEMENT
 INSERT INTO EMPLACEMENT(code, libelle)
@@ -87,19 +87,19 @@ INSERT INTO EMPLACEMENT(code, libelle)
       
 -- Create missing MARQUE
 INSERT INTO MARQUE(code, libelle)
-  SELECT DISTINCT a.code_emplacement, 'Inconnu'
+  SELECT DISTINCT a.code_marque, 'Inconnu'
   FROM ARTICLE a
   WHERE NOT EXISTS (
       SELECT * FROM MARQUE f
-      WHERE a.code_emplacement = f.code);
+      WHERE a.code_marque = f.code);
       
 -- Create missing PROVENANCE
 INSERT INTO PROVENANCE(code, libelle)
-  SELECT DISTINCT a.code_emplacement, 'Inconnu'
+  SELECT DISTINCT a.code_provenance, 'Inconnu'
   FROM ARTICLE a
   WHERE NOT EXISTS (
       SELECT * FROM PROVENANCE f
-      WHERE a.code_emplacement = f.code);
+      WHERE a.code_provenance = f.code);
       
 -- Delete unknown articles from the vente table
 DELETE FROM VENTE WHERE code_article NOT IN (SELECT code FROM ARTICLE);

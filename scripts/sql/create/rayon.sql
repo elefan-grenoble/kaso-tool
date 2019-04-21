@@ -2,7 +2,7 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS RAYON;
 
 CREATE TABLE RAYON (
-  code                   INT PRIMARY KEY,
+  code                   VARCHAR(56) PRIMARY KEY,
   libelle                VARCHAR(255) NOT NULL
 )
   DEFAULT CHARACTER SET UTF8
