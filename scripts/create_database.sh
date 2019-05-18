@@ -1,4 +1,5 @@
-source ../../kaso-tool-config.sh
+DIRNAME=`dirname "$0"`
+source "$DIRNAME/kaso-tool-config.sh"
 
 echo 'Recreating the database...'
 # mysql -h localhost -u $dbUser -p$dbPassword -e "DROP DATABASE ${dbName}; CREATE DATABASE IF NOT EXISTS ${dbName}"

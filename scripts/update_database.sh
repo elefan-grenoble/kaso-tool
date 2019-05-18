@@ -1,4 +1,7 @@
-source ../../kaso-tool-config.sh
+DIRNAME=`dirname "$0"`
+source "$DIRNAME/kaso-tool-config.sh"
+
+pushd "$DIRNAME"
 
 echo 'Populating the fournisseur table'
 mysql -h localhost -u $dbUser -p$dbPassword $dbName < sql/create/fournisseur.sql
@@ -16,3 +19,5 @@ echo 'Populating the articles table'
 mysql -h localhost -u $dbUser -p$dbPassword $dbName < sql/create/articles.sql
 echo 'Populating the stocks table'
 mysql -h localhost -u $dbUser -p$dbPassword $dbName < sql/create/stocks.sql
+
+popd
