@@ -19,5 +19,6 @@ echo 'Populating the articles table'
 mysql -h localhost -u $dbUser -p$dbPassword $dbName < sql/create/articles.sql
 echo 'Populating the stocks table'
 mysql -h localhost -u $dbUser -p$dbPassword $dbName < sql/create/stocks.sql
-
+echo 'Populating the code_catalogue table'
+mysql -h localhost -u $dbUser -p$dbPassword $dbName < sql/create/code_catalogue.sql
 popd
